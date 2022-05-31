@@ -17,5 +17,5 @@ SERVER_PORT=
 ```
 
 <p align="center">
-<img src="./assets/erDiagram.png" width="100%"/>
+<img src="./assets/School-ERDiagram.png" width="100%"/>
 </p>
