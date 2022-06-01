@@ -1,12 +1,22 @@
-import { Student } from "./entities/Student";
-import { Year } from "./entities/Year";
-import { Teacher } from "./entities/Teacher";
 import express from "express";
-import { createConnection } from "typeorm";
 import dotenv from "dotenv";
+import { createConnection } from "typeorm";
+
+//entities
 import { ClassPeriod } from "./entities/ClassPeriod";
 import { Classroom } from "./entities/Classroom";
+import { Student } from "./entities/Student";
+import { Teacher } from "./entities/Teacher";
 import { Subject } from "./entities/Subject";
+
+//router
+import { Year } from "./entities/Year";
+import { createStudentRouter } from "./routes/create/create_student";
+import { createClassPeroidRouter } from "./routes/create/create_classPeriod";
+import { createClassroomRouter } from "./routes/create/create_classroom";
+import { createSubjectRouter } from "./routes/create/create_subject";
+import { createTeacherRouter } from "./routes/create/create_teacher";
+import { createYearRouter } from "./routes/create/create_year";
 
 const app = express();
 dotenv.config();
@@ -23,6 +33,16 @@ async function main() {
       entities: [ClassPeriod, Classroom, Student, Subject, Teacher, Year],
       synchronize: true,
     });
+
+    app.use(express.json);
+
+    app.use(createStudentRouter);
+    app.use(createClassPeroidRouter);
+    app.use(createClassroomRouter);
+    app.use(createSubjectRouter);
+    app.use(createTeacherRouter);
+    app.use(createYearRouter);
+
     console.log("connect success");
     app.listen(process.env.SERVER_PORT || 3000, () => {
       console.log(`running on port: ${process.env.SERVER_PORT || 3000}`);
