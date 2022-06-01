@@ -25,7 +25,7 @@ export class Student extends BaseEntity {
   student_birthday_year: number;
 
   @Column()
-  teacher_tel: string;
+  student_tel: string;
 
   @ManyToOne(() => Classroom, (classroom) => classroom.student)
   @JoinColumn({
