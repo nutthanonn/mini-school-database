@@ -18,7 +18,9 @@ export class Classroom extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   classroom_id: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   classroom_name: string;
 
   @ManyToOne(() => Year, (year) => year.classroom)
