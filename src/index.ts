@@ -17,6 +17,12 @@ import { createClassroomRouter } from "./routes/create/create_classroom";
 import { createSubjectRouter } from "./routes/create/create_subject";
 import { createTeacherRouter } from "./routes/create/create_teacher";
 import { createYearRouter } from "./routes/create/create_year";
+import { fetchYearRouter } from "./routes/fetch/fetch_year";
+import { fetchClassroomRouter } from "./routes/fetch/fetch_classroom";
+import { fetchStudentRouter } from "./routes/fetch/fetch_student";
+import { fetchTeacherRouter } from "./routes/fetch/fetch_Teacher";
+import { fetchSubjectRouter } from "./routes/fetch/fetch_subject";
+import { fetchClassPeriodRouter } from "./routes/fetch/fetch_classPeriod";
 
 const app = express();
 dotenv.config();
@@ -34,7 +40,7 @@ async function main() {
       synchronize: true,
     });
 
-    app.use(express.json);
+    app.use(express.json());
 
     app.use(createStudentRouter);
     app.use(createClassPeroidRouter);
@@ -42,6 +48,13 @@ async function main() {
     app.use(createSubjectRouter);
     app.use(createTeacherRouter);
     app.use(createYearRouter);
+
+    app.use(fetchYearRouter);
+    app.use(fetchClassroomRouter);
+    app.use(fetchStudentRouter);
+    app.use(fetchTeacherRouter);
+    app.use(fetchSubjectRouter);
+    app.use(fetchClassPeriodRouter);
 
     console.log("connect success");
     app.listen(process.env.SERVER_PORT || 3000, () => {
