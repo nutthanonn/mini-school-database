@@ -10,7 +10,7 @@ import {
 } from "typeorm";
 import { Classroom } from "./Classroom";
 
-@Entity("Student")
+@Entity("student")
 export class Student extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   student_id: string;
