@@ -16,6 +16,4 @@ SERVER_PORT=
 
 ```
 
-<p align="center">
-<img src="./assets/School-ERDiagram.png" width="100%"/>
-</p>
+<iframe width="560" height="315" src='https://dbdiagram.io/embed/62babbfe69be0b672c5689b5'> </iframe>
